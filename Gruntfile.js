@@ -14,7 +14,7 @@ module.exports = function(grunt) {
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     // Task configuration.
     clean: {
-      files: ['js/dist']
+      files: ['js/dist/*']
     },
     concat: {
       options: {
@@ -24,6 +24,10 @@ module.exports = function(grunt) {
       jq: {
         src: ['js/vendor/contrib/libs/jquery-1.11.1/dist/jquery.js'],
         dest: 'js/dist/concat/jq.concat.js'
+      },
+      all: {
+        src: ['js/vendor/iknsa/libs/main.js'],
+        dest: 'js/dist/concat/all.concat.js'
       },
       dist: {
         src: ['js/vendor/contrib/libs/<%= pkg.name %>.js'],
@@ -37,6 +41,10 @@ module.exports = function(grunt) {
       jq: {
         src: '<%= concat.jq.dest %>',
         dest: 'js/dist/jq.min.js'
+      },
+      all: {
+        src: '<%= concat.all.dest %>',
+        dest: 'js/dist/all.min.js'
       },
     },
     jshint: {
@@ -63,15 +71,7 @@ module.exports = function(grunt) {
     },
   });
 
-  // These plugins provide necessary tasks.
-  // grunt.loadNpmTasks('grunt-contrib-clean');
-  // grunt.loadNpmTasks('grunt-contrib-concat');
-  // grunt.loadNpmTasks('grunt-contrib-uglify');
-  // grunt.loadNpmTasks('grunt-contrib-qunit');
-  // grunt.loadNpmTasks('grunt-contrib-jshint');
-  // grunt.loadNpmTasks('grunt-contrib-watch');
-
   // Default task.
-  grunt.registerTask('default', ['jshint', 'clean', 'concat:jq', 'uglify:jq']);
+  grunt.registerTask('default', ['jshint', 'clean', 'concat:jq', 'concat:all', 'uglify:jq', 'uglify:all']);
 
 };
