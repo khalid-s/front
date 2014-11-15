@@ -1,0 +1,28 @@
+{
+  "name": "iknsa - F",
+  "version": "0.0.0",
+  "homepage": "https://github.com/khalid-bd/f",
+  "description": "The ultimate form treatment",
+  "keywords": [
+    "Contact",
+    "form",
+    "polls",
+    "and",
+    "exams",
+    "processing"
+  ],
+  "authors": [
+    "Khalid Sookia <iknsa.f@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery-1.11.1": "http://code.jquery.com/jquery-1.11.1.js"
+  }
+}
