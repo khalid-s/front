@@ -5,11 +5,10 @@ require 'breakpoint'
 
 # Set this to the root of your project when deployed:
 http_path = "/"
-css_dir = "css/dist"
-sass_dir = "css/lib"
-images_dir = "img"
-javascripts_dir = "js"
-fonts_dir = "font"
+css_dir = "vendor/dist/css"
+sass_dir = "vendor/libs/iknsa/scss"
+images_dir = "vendor/img"
+fonts_dir = "vendor/font"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed

@@ -1,4 +1,4 @@
 {
-    "directory" : "js/vendor/contrib/libs",
+    "directory" : "vendor/libs/contrib",
     "json"      : "bower.json"
 }
