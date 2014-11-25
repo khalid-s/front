@@ -6,7 +6,7 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     // Metadata.
-    pkg: grunt.file.readJSON('front.jquery.json'),
+    pkg: grunt.file.readJSON('front.json'),
     banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
       '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
       '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
@@ -14,37 +14,29 @@ module.exports = function(grunt) {
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     // Task configuration.
     clean: {
-      files: ['js/dist/*']
+      files: ['vendor/dist/*']
     },
     concat: {
       options: {
         banner: '<%= banner %>',
         stripBanners: true
       },
-      jq: {
-        src: ['js/vendor/contrib/libs/jquery-1.11.1/dist/jquery.js'],
-        dest: 'js/dist/concat/jq.concat.js'
-      },
       all: {
-        src: ['js/vendor/iknsa/libs/main.js'],
-        dest: 'js/dist/concat/all.concat.js'
+        src: ['vendor/libs/iknsa/main.js'],
+        dest: 'vendor/dist/concat/all.concat.js'
       },
       dist: {
-        src: ['js/vendor/contrib/libs/<%= pkg.name %>.js'],
-        dest: 'js/dist/concat/<%= pkg.name %>.concat.js'
+        src: ['vendor/libs/contrib/<%= pkg.name %>.js'],
+        dest: 'vendor/dist/concat/<%= pkg.name %>.concat.js'
       },
     },
     uglify: {
       options: {
         banner: '<%= banner %>'
       },
-      jq: {
-        src: '<%= concat.jq.dest %>',
-        dest: 'js/dist/jq.min.js'
-      },
       all: {
         src: '<%= concat.all.dest %>',
-        dest: 'js/dist/all.min.js'
+        dest: 'vendor/dist/all.min.js'
       },
     },
     jshint: {
@@ -72,6 +64,6 @@ module.exports = function(grunt) {
   });
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'clean', 'concat:jq', 'concat:all', 'uglify:jq', 'uglify:all']);
+  grunt.registerTask('default', ['jshint', 'clean', 'concat:all', 'uglify:all']);
 
 };

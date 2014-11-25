@@ -23,6 +23,5 @@
     "tests"
   ],
   "devDependencies": {
-    "jquery-1.11.1": "http://code.jquery.com/jquery-1.11.1.js"
   }
 }
